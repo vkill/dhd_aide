@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "dhd_aide chrome extension",
+  "version": "1.0.0",
+  "description": "dhd_aide chrome extension",
+  "icons": {
+    "128": "icon/icon128.png",
+    "48": "icon/icon48.png",
+    "16": "icon/icon16.png"
+  },
+  "browser_action": {
+    "default_icon": "icon/icon19.png",
+    "default_title": "dhd_aide",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "scripts/core.bundle.js",
+      "scripts/background.bundle.js"
+    ]
+  },
+  "offline_enabled": false,
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://game.37.com/*"
+  ]
+}

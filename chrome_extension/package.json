@@ -1,0 +1,38 @@
+{
+  "name": "dhd_aide",
+  "version": "1.0.0",
+  "description": "dhd_aide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vkill/dhd_aide.git"
+  },
+  "keywords": [
+    "aide"
+  ],
+  "author": "vkill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vkill/dhd_aide/issues"
+  },
+  "homepage": "https://github.com/vkill/dhd_aide#readme",
+  "devDependencies": {
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.10.0",
+    "expose-loader": "^0.7.0",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.6",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^1.12.2",
+    "webpack-stream": "^2.1.0"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4"
+  }
+}
