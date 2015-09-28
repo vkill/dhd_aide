@@ -12,6 +12,11 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+gulp.task('copy_deps', function() { 
+  return gulp.src(['node_modules/jquery/dist/**'], {base: './node_modules'})
+    .pipe(gulp.dest('app/plugins/'));
+});
+
 gulp.task('scripts', function() { 
   return gulp.src('src/scripts/*.js')
     .pipe(named())
@@ -20,7 +25,7 @@ gulp.task('scripts', function() {
     .pipe(notify({ message: 'scripts task complete' }));
 });
 
-gulp.task('default', ['clean', 'scripts'])
+gulp.task('default', ['clean', 'copy_deps', 'scripts'])
 
 gulp.task('watch', ['default'], function() {
   gulp.watch('src/scripts/**/*.*', ['scripts']);

@@ -1,4 +1,6 @@
+var webpack = require("webpack");
 var path = require("path");
+var node_modules_dir = path.join(__dirname, 'node_modules');
 
 var config = {
   entry: {
@@ -12,12 +14,20 @@ var config = {
   },
   module: {
     loaders: [
-      { test: /\.coffee$/, loader: "coffee-loader" },
+      { test: /\.coffee$/, loader: "coffee-loader" }
     ]
   },
   resolve: {
     extensions: ["", ".coffee", ".js"]
-  }
+  },
+  externals: [
+    {
+      "window": "window",
+      "jQuery": "window.jQuery",
+      "$": "window.jQuery"
+    }
+  ]
 };
 
+module.exports = config;
 
