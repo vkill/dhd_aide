@@ -13,7 +13,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('copy_deps', function() { 
-  return gulp.src(['node_modules/jquery/dist/**'], {base: './node_modules'})
+  return gulp.src(['node_modules/jquery/dist/**', 'node_modules/urijs/src/**'], {base: './node_modules'})
     .pipe(gulp.dest('app/plugins/'));
 });
 

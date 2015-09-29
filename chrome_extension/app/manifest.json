@@ -15,16 +15,14 @@
   },
   "background": {
     "persistent": true,
-    "scripts": [
-      "scripts/core.bundle.js",
-      "scripts/background.bundle.js"
-    ]
+    "page": "background.html"
   },
   "offline_enabled": false,
 
   "permissions": [
+    "storage",
     "webRequest",
     "webRequestBlocking",
-    "*://game.37.com/*"
+    "*://*.37.com/*"
   ]
 }

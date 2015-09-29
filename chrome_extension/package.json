@@ -33,6 +33,7 @@
     "webpack-stream": "^2.1.0"
   },
   "dependencies": {
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "urijs": "^1.16.1"
   }
 }
