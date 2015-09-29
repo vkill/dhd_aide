@@ -18,7 +18,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 
 
 chrome.webRequest.onBeforeRequest.addListener(function(details){
-  console.log('on request 37wan.com login path');
+  console.log('on request 37wan.com');
 
   var url = details.url;
   
@@ -26,11 +26,11 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
   $('#log').append("<p>" + url + "</p>");
 
   var uri = new URI(url);
-  var query_obj = URI.parseQuery(uri.query);
-  var logincode = query_obj.logincode;
+  var query_obj = URI.parseQuery(uri.query());
+  var wd = query_obj.wd;
 
-  if (logincode) {
-    chrome.storage.sync.set({'logincode': logincode}, function() {
+  if (wd) {
+    chrome.storage.sync.set({'wd': wd}, function() {
       message('Settings saved');
     });
   }
