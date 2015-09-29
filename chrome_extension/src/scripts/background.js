@@ -13,6 +13,10 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
                 namespace,
                 storageChange.oldValue,
                 storageChange.newValue);
+
+    chrome.storage.sync.get('sid', function(items){
+      console.log('sid value is "%s"', items['sid']);
+    });
   }
 });
 
@@ -27,11 +31,11 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
 
   var uri = new URI(url);
   var query_obj = URI.parseQuery(uri.query());
-  var wd = query_obj.wd;
+  var sid = query_obj.sid;
 
-  if (wd) {
-    chrome.storage.sync.set({'wd': wd}, function() {
-      message('Settings saved');
+  if (sid) {
+    chrome.storage.sync.set({'sid': sid}, function() {
+      console.log('sid saved');
     });
   }
 
