@@ -4,6 +4,9 @@ var chrome = window.chrome;
 var $ = require("$")
 var URI = require("URI");
 
+// 
+// listen storage.onChanged
+// 
 chrome.storage.onChanged.addListener(function(changes, namespace) {
   for (key in changes) {
     var storageChange = changes[key];
@@ -21,23 +24,33 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 });
 
 
+// 
+// listen webRequest.onBeforeRequest
+// 
 chrome.webRequest.onBeforeRequest.addListener(function(details){
   console.log('onBeforeRequest');
 
-  var url = details.url;
-  
+  var url = details.url;  
   console.log(url);
-
-  // var uri = new URI(url);
-  // var query_obj = URI.parseQuery(uri.query());
-  // var sid = query_obj.sid;
-
-  // if (sid) {
-  //   chrome.storage.sync.set({'sid': sid}, function() {
-  //     console.log('sid saved');
-  //   });
-  // }
 
   return {cancel: false};
 }, { urls: ["<all_urls>"] }, ["blocking"]);
 
+
+
+// 
+// listen extension.onMessage
+// 
+chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) { 
+  if (msg.cmd === "set_loginCode") {
+    var loginCode = msg.loginCode;
+
+    var result = '0';
+    chrome.storage.sync.set({'loginCode': loginCode}, function() {
+      result = '1';
+      console.log('loginCode saved');
+    });
+    var body = {result : result};
+    sendResponse(body);
+  }
+});

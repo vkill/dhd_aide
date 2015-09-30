@@ -19,7 +19,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://game.37.com/play.php*", "*://*.baidu.com/*"],
+      "matches": ["*://*.dhd.37wan.com/*", "*://*.baidu.com/*"],
       "js": ["scripts/content.bundle.js"],
       "run_at": "document_idle",
       "all_frames": true
@@ -32,7 +32,7 @@
     "webRequest",
     "webRequestBlocking",
     "tabs",
-    "*://*.37.com/*",
+    "*://*.dhd.37.com/*",
     "*://*.baidu.com/*"
   ],
   "web_accessible_resources": [
