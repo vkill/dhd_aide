@@ -7,6 +7,7 @@ var config = {
     background: './src/scripts/background.js',
     core: './src/scripts/core.js',
     popup: './src/scripts/popup.js',
+    options: './src/scripts/options.js',
     content_37wan: './src/scripts/content_37wan.js'
   },
   output: {

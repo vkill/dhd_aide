@@ -16,10 +16,6 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
                 namespace,
                 storageChange.oldValue,
                 storageChange.newValue);
-
-    chrome.storage.sync.get('loginCode', function(items){
-      console.log('loginCode value is "%s"', items['loginCode']);
-    });
   }
 });
 
@@ -41,19 +37,36 @@ chrome.webRequest.onBeforeRequest.addListener(function(details){
 // 
 // listen extension.onMessage
 // 
+var sendMessageToOptions = function(msg, callback){
+  var callback = callback || function(response){}
+
+  optionsUrl = chrome.extension.getURL('options.html')
+  chrome.tabs.query({url: optionsUrl}, function(tabs){
+    if (tabs.length) {
+      chrome.tabs.sendMessage(tabs[0].id, msg, callback);
+    }
+  });
+};
+
+
 chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) { 
+  var from = sender.tab ? sender.tab.url : 'extension'
+  console.log('----------msg "%s", from "%s"', JSON.stringify(msg), from);
+
   if (msg.cmd === "set_loginCode") {
     var loginCode = msg.loginCode;
-
     console.log('----------cmd is set_loginCode, loginCode is "%s"', loginCode);
 
     chrome.storage.sync.set({'loginCode': loginCode}, function(data) {
       if (chrome.runtime.lastError) {
+        // TODO
         return;
-      }        
+      }
     });
 
     sendResponse({errCode: 0, errMsg: ''});
+
+    sendMessageToOptions({cmd: "reload_loginCode"});
     return;
   }
 
