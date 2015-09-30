@@ -19,8 +19,8 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.dhd.37wan.com/*", "*://*.baidu.com/*"],
-      "js": ["scripts/content.bundle.js"],
+      "matches": ["*://*.dhd.37wan.com/index.jsp*"],
+      "js": ["scripts/content_37wan.bundle.js"],
       "run_at": "document_idle",
       "all_frames": true
     }
@@ -32,10 +32,9 @@
     "webRequest",
     "webRequestBlocking",
     "tabs",
-    "*://*.dhd.37.com/*",
+    "*://*.dhd.37wan.com/*",
     "*://*.baidu.com/*"
   ],
   "web_accessible_resources": [
-    "scripts/content_37wan.bundle.js"
   ]
 }

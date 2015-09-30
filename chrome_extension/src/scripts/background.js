@@ -17,8 +17,8 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
                 storageChange.oldValue,
                 storageChange.newValue);
 
-    chrome.storage.sync.get('sid', function(items){
-      console.log('sid value is "%s"', items['sid']);
+    chrome.storage.sync.get('loginCode', function(items){
+      console.log('loginCode value is "%s"', items['loginCode']);
     });
   }
 });
@@ -45,15 +45,17 @@ chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
   if (msg.cmd === "set_loginCode") {
     var loginCode = msg.loginCode;
 
-    var errCode = 1;
-    chrome.storage.sync.set({'loginCode': loginCode}, function() {
-      errCode = 0;
-      console.log('loginCode saved');
+    console.log('cmd is set_loginCode, loginCode is "%s"', loginCode);
+
+    chrome.storage.sync.set({'loginCode': loginCode}, function(data) {
+      if (chrome.runtime.lastError) {
+        return;
+      }        
     });
-    var body = {errCode: errCode};
-    sendResponse(body);
+
+    sendResponse({errCode: 0, errMsg: ''});
     return;
   }
 
-  sendResponse({errCode: 1, errMsg: 'cmd is null or unknow'});
+  sendResponse({errCode: 99, errMsg: 'cmd is null or unknow'});
 });

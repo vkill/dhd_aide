@@ -16,14 +16,15 @@ if (matched) {
   var loginCode = null;
 }
 
+console.log('----------loginCode is "%s"', loginCode);
+
 if (loginCode) {
   var msg = {cmd: 'set_loginCode', loginCode: loginCode};
-  chrome.runtime.sendMessage(msg, function(response){
-    var result = response.resultl
-    console.log('set_loginCode result: %s', result);
+  chrome.extension.sendMessage(msg, function(response){
+    var errCode = response.errCode;
+    var errMsg = response.errMsg;
+    console.log('----------set_loginCode errCode is "%s", errMsg is "%s"', errCode, errMsg);
   })
 }
-
-
 
 
