@@ -26,7 +26,8 @@ var config = {
       "window": "window",
       "jQuery": "window.jQuery",
       "$": "window.jQuery",
-      "URI": "window.URI"
+      "URI": "window.URI",
+      "chrome": "window.chrome"
     }
   ]
 };

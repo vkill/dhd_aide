@@ -1,13 +1,12 @@
 var window = require("window");
-var chrome = window.chrome;
+var chrome = require("chrome");
+
+console.log('----------in dhd.37wan.com');
 
 var document = window.document;
 
-console.log('----------in dhd.37wan.com')
-
 var params = document.getElementsByTagName('param');
 var flashVars = params.FlashVars.value;
-
 var regexp = new RegExp("loginCode=([a-z0-9]+)", 'i');
 var matched = flashVars.match(regexp);
 if (matched) {

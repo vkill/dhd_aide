@@ -1,8 +1,8 @@
 var window = require("window");
-var chrome = window.chrome;
-
+var chrome = require("chrome");
 var $ = require("$")
 var URI = require("URI");
+
 
 // 
 // listen storage.onChanged
@@ -45,7 +45,7 @@ chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
   if (msg.cmd === "set_loginCode") {
     var loginCode = msg.loginCode;
 
-    console.log('cmd is set_loginCode, loginCode is "%s"', loginCode);
+    console.log('----------cmd is set_loginCode, loginCode is "%s"', loginCode);
 
     chrome.storage.sync.set({'loginCode': loginCode}, function(data) {
       if (chrome.runtime.lastError) {

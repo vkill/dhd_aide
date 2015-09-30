@@ -1,7 +1,7 @@
 var window = require("window");
-var chrome = window.chrome;
-
+var chrome = require("chrome");
 var $ = require("$");
+
 
 $(document).ready(function(){
 
