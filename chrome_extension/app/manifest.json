@@ -17,8 +17,15 @@
     "persistent": true,
     "page": "background.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["*://game.37.com/play.php?game_id=292&sid=*"],
+      "js": ["content_37wan.js"],
+      "run_at": "document_end"
+    }
+  ],
   "offline_enabled": false,
-
+  "options_page": "options.html",
   "permissions": [
     "storage",
     "webRequest",

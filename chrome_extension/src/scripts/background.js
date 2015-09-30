@@ -21,24 +21,23 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 });
 
 
-chrome.webRequest.onBeforeRequest.addListener(function(details){
-  console.log('on request 37wan.com');
+// chrome.webRequest.onBeforeRequest.addListener(function(details){
+//   console.log('onBeforeRequest');
 
-  var url = details.url;
+//   // var url = details.url;
   
-  console.log(url);
-  $('#log').append("<p>" + url + "</p>");
+//   // console.log(url);
 
-  var uri = new URI(url);
-  var query_obj = URI.parseQuery(uri.query());
-  var sid = query_obj.sid;
+//   // var uri = new URI(url);
+//   // var query_obj = URI.parseQuery(uri.query());
+//   // var sid = query_obj.sid;
 
-  if (sid) {
-    chrome.storage.sync.set({'sid': sid}, function() {
-      console.log('sid saved');
-    });
-  }
+//   // if (sid) {
+//   //   chrome.storage.sync.set({'sid': sid}, function() {
+//   //     console.log('sid saved');
+//   //   });
+//   // }
 
-  return {cancel: false};
-}, { urls: ["<all_urls>"] }, ["blocking"]);
+//   return {cancel: false};
+// }, { urls: ["<all_urls>"] }, ["blocking"]);
 

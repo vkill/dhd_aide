@@ -6,7 +6,8 @@ var config = {
   entry: {
     background: './src/scripts/background.js',
     core: './src/scripts/core.js',
-    popup: './src/scripts/popup.js'
+    popup: './src/scripts/popup.js',
+    content_37wan: './src/scripts/content_37wan.js'
   },
   output: {
     path: path.join(__dirname, "app/scripts"),
