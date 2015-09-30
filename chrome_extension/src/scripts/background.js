@@ -45,12 +45,15 @@ chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
   if (msg.cmd === "set_loginCode") {
     var loginCode = msg.loginCode;
 
-    var result = '0';
+    var errCode = 1;
     chrome.storage.sync.set({'loginCode': loginCode}, function() {
-      result = '1';
+      errCode = 0;
       console.log('loginCode saved');
     });
-    var body = {result : result};
+    var body = {errCode: errCode};
     sendResponse(body);
+    return;
   }
+
+  sendResponse({errCode: 1, errMsg: 'cmd is null or unknow'});
 });
