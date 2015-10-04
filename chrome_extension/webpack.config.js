@@ -5,7 +5,7 @@ var node_modules_dir = path.join(__dirname, 'node_modules');
 var config = {
   entry: {
     background: './src/scripts/background.js',
-    core: './src/scripts/core.js',
+    app: './src/scripts/app.js',
     popup: './src/scripts/popup.js',
     options: './src/scripts/options.js',
     content_37wan: './src/scripts/content_37wan.js'
