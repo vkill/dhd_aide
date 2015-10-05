@@ -28,12 +28,15 @@
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.6",
+    "handlebars-loader": "^1.1.4",
     "vinyl-named": "^1.1.0",
     "webpack": "^1.12.2",
     "webpack-stream": "^2.1.0"
   },
   "dependencies": {
     "crossroads": "^0.12.2",
+    "fs": "0.0.2",
+    "handlebars": "^4.0.3",
     "hasher": "^1.2.0",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",

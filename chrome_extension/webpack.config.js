@@ -16,7 +16,8 @@ var config = {
   },
   module: {
     loaders: [
-      { test: /\.coffee$/, loader: "coffee-loader" }
+      { test: /\.coffee$/, loader: "coffee-loader" },
+      { test: /\.hbs$/, loader: "handlebars-loader" }
     ]
   },
   resolve: {
