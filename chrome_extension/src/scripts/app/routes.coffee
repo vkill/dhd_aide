@@ -1,5 +1,6 @@
 crossroads = require("crossroads")
 hasher = require("hasher")
+_ = require("lodash")
 
 class Routes
   constructor: () ->
@@ -12,7 +13,7 @@ class Routes
     @handler =
       routed: (request, data)=>
         route = data.route
-        params = data.params[0]
+        params = _.omit(data.params[0], 'request_', 'vals_')
         action = route.name
         
         if @handler[action]
