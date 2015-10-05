@@ -19,13 +19,19 @@ var welcome_hbs_template = require('./../view/welcome.hbs');
 
 var document = window.document;
 
-routes.add('', 'main_home')
-routes.add('home', 'main_home')
-routes.add('posts', 'posts_index');
-routes.add('posts/{id}', 'posts_show', {rules: {id: /^[\d]+$/}});
+var app_css = require("./../styles/app.scss");
 
-routes.handler.posts_show = function(params){
+routes.add('', 'main_home')
+routes.add('home', 'main_index')
+routes.add('logout', 'main_logout')
+
+routes.handler.main_index = function(params){
   var html = main_index_hbs_template();
+  $('body').html(html);
+};
+
+routes.handler.main_logout = function(params){
+  var html = "logout";
   $('body').html(html);
 };
 

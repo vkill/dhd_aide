@@ -22,6 +22,7 @@
   "devDependencies": {
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.10.0",
+    "css-loader": "^0.19.0",
     "expose-loader": "^0.7.0",
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",
@@ -29,6 +30,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.6",
     "handlebars-loader": "^1.1.4",
+    "node-sass": "^3.3.3",
+    "sass-loader": "^3.0.0",
+    "style-loader": "^0.12.4",
     "vinyl-named": "^1.1.0",
     "webpack": "^1.12.2",
     "webpack-stream": "^2.1.0"
@@ -36,7 +40,6 @@
   "dependencies": {
     "amazeui": "^2.4.2",
     "crossroads": "^0.12.2",
-    "fs": "0.0.2",
     "handlebars": "^4.0.3",
     "handlebars-layouts": "^3.1.2",
     "hasher": "^1.2.0",

@@ -35,4 +35,6 @@ gulp.task('default', ['clean', 'copy_deps', 'scripts'])
 
 gulp.task('watch', ['default'], function() {
   gulp.watch('src/scripts/**/*.*', ['scripts']);
+  gulp.watch('src/styles/**/*.*', ['scripts']);
+  gulp.watch('src/view/**/*.*', ['scripts']);
 });
