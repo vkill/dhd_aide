@@ -17,18 +17,20 @@ class Routes
         action = route.name
         
         if @handler[action]
+          console.log 'handle %s', action
           @handler[action] params
         else
           @handler['default'] params
 
       bypassed: (request)->
-        console.log '404, request: %s', request
+        console.log 'handle 404, request: %s', request
 
       default: (params)->
-        console.log params
+        console.log 'handle default'
 
   start: =>
-    crossroads.normalizeFn = crossroads.NORM_AS_OBJECT;
+    crossroads.normalizeFn = crossroads.NORM_AS_OBJECT
+    crossroads.ignoreState = true
 
     crossroads.bypassed.add (request)=>
       @handler.bypassed request
@@ -44,7 +46,6 @@ class Routes
       crossroads.parse(newHash)
 
     hasher.initialized.add parseHash
-    hasher.changed.add console.log, console
     hasher.changed.add parseHash
     hasher.init()
 

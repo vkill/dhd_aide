@@ -15,6 +15,7 @@ var routes = require("./app/routes");
 window.routes = routes;
 
 var main_index_hbs_template = require('./../view/main/index.hbs');
+var welcome_hbs_template = require('./../view/welcome.hbs');
 
 var document = window.document;
 
@@ -28,8 +29,15 @@ routes.handler.posts_show = function(params){
   $('body').html(html);
 };
 
-routes.start();
+$(document).ready(function(){
+  var html = welcome_hbs_template();
+  $('body').html(html);
+  $('#body_modal_loading').modal();
 
-window.main_index_hbs_template = main_index_hbs_template
+  routes.start();
+})
+
+
+
 
 
