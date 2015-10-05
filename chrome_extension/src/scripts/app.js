@@ -17,7 +17,6 @@ routes.add('posts/{id}', 'posts__show', {rules: {id: /^[\d]+$/}});
 
 routes.handler.posts__show = function(params){
   var html = index_hbs_template();
-  console.log(html)
   $('body').html(html);
 };
 
