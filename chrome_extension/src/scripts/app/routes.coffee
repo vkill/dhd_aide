@@ -36,11 +36,16 @@ class Routes
     crossroads.routed.add (request, data)=>
       @handler.routed request, data
 
+    hasher.prependHash = '!/';
+
     parseHash = (newHash, oldHash)->
+      if newHash is ''
+        hasher.replaceHash('home')
       crossroads.parse(newHash)
 
     hasher.initialized.add parseHash
-    hasher.changed.add(parseHash)
+    hasher.changed.add console.log, console
+    hasher.changed.add parseHash
     hasher.init()
 
   to: (url)=>

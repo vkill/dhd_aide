@@ -19,12 +19,12 @@ var main_index_hbs_template = require('./../view/main/index.hbs');
 var document = window.document;
 
 routes.add('', 'main_home')
+routes.add('home', 'main_home')
 routes.add('posts', 'posts_index');
 routes.add('posts/{id}', 'posts_show', {rules: {id: /^[\d]+$/}});
 
 routes.handler.posts_show = function(params){
   var html = main_index_hbs_template();
-  console.log(html)
   $('body').html(html);
 };
 
