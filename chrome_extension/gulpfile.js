@@ -12,8 +12,14 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
+deps = [
+  'node_modules/jquery/dist/**',
+  'node_modules/urijs/src/**',
+  'node_modules/amazeui/dist/**'
+]
+
 gulp.task('copy_deps', function() { 
-  return gulp.src(['node_modules/jquery/dist/**', 'node_modules/urijs/src/**'], {base: './node_modules'})
+  return gulp.src(deps, {base: './node_modules'})
     .pipe(gulp.dest('app/plugins/'));
 });
 
